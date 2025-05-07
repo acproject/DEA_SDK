@@ -64,6 +64,9 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.cio)
 
+            implementation(libs.voyager.navigation)
+            implementation(libs.voyager.transitions)
+
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
