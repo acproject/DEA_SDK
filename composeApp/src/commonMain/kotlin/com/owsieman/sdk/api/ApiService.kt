@@ -1,4 +1,4 @@
-package org.owsieman.sdk.api
+package com.owsieman.sdk.api
 
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.HttpTimeout

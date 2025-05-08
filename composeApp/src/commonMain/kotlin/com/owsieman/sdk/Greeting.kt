@@ -1,4 +1,4 @@
-package org.owsieman.sdk
+package com.owsieman.sdk
 
 class Greeting {
     private val platform = getPlatform()

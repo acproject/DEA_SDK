@@ -1,4 +1,4 @@
-package org.owsieman.sdk
+package com.owsieman.sdk
 
 interface Platform {
     val name: String

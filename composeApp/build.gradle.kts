@@ -108,11 +108,11 @@ dependencies {
 
 compose.desktop {
     application {
-        mainClass = "org.owsieman.sdk.MainKt"
+        mainClass = "com.owsieman.sdk.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "org.owsieman.sdk"
+            packageName = "com.owsieman.sdk"
             packageVersion = "1.0.0"
         }
     }

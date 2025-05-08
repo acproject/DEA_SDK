@@ -1,4 +1,4 @@
-package org.owsieman.sdk
+package com.owsieman.sdk
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

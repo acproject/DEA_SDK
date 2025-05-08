@@ -1,4 +1,4 @@
-package org.owsieman.sdk
+package com.owsieman.sdk
 
 class WasmPlatform: Platform {
     override val name: String = "Web with Kotlin/Wasm"

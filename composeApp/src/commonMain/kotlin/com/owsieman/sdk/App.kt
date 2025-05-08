@@ -1,4 +1,4 @@
-package org.owsieman.sdk
+package com.owsieman.sdk
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image

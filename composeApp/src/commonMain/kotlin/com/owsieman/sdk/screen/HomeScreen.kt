@@ -1,4 +1,4 @@
-package org.owsieman.sdk.screen
+package com.owsieman.sdk.screen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
