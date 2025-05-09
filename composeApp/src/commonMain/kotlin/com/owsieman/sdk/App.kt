@@ -17,8 +17,8 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 import dea_sdk.composeapp.generated.resources.Res
 import dea_sdk.composeapp.generated.resources.compose_multiplatform
-import org.owsieman.sdk.screen.ExampleScreen
-import org.owsieman.sdk.screen.HomeScreen
+import com.owsieman.sdk.screen.ExampleScreen
+import com.owsieman.sdk.screen.HomeScreen
 
 @Composable
 @Preview
