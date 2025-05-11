@@ -66,7 +66,7 @@ kotlin {
 
             implementation(libs.voyager.navigation)
             implementation(libs.voyager.transitions)
-
+//            implementation("com.guardsquare:proguard-base:7.2.2")
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -93,8 +93,9 @@ android {
     }
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
         }
+
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_18
