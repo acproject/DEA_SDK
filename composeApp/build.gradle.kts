@@ -76,11 +76,11 @@ kotlin {
 }
 
 android {
-    namespace = "org.owsieman.sdk"
+    namespace = "com.owsieman.sdk"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "org.owsieman.sdk"
+        applicationId = "com.owsieman.sdk"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
