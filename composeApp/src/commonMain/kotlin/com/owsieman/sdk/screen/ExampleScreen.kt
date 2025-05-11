@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -30,19 +29,15 @@ class ExampleScreen: Screen {
 
 @Composable
 fun ScrollableList() {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(all = 10.dp)
-    ) {
-        val verticalScroll = rememberScrollState(0)
-        val horizontalScroll = rememberScrollState(0)
+
+    val verticalScroll = rememberScrollState(0)
+    val horizontalScroll = rememberScrollState(0)
+    Box(modifier = Modifier.fillMaxSize().padding(all = 10.dp)) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(verticalScroll)
                 .horizontalScroll(horizontalScroll)
-                .fillMaxWidth()
                 .padding(end = 12.dp, bottom = 12.dp)
         ) {
             for (item in 1..30) {
@@ -52,16 +47,22 @@ fun ScrollableList() {
                 )
             }
 
-            VerticalScrollbar(
-                modifier = Modifier.align(Alignment.CenterEnd).fillMaxHeight(),
-                adapter = rememberScrollbarAdapter(verticalScroll)
-            )
-            HorizontalScrollbar(
-                modifier = Modifier.align(Alignment.BottomStart)
-                    .fillMaxHeight()
-                    .padding(end = 12.dp),
-                adapter = rememberScrollbarAdapter(verticalScroll)
-            )
         }
     }
 }
+
+//          VerticalScrollbar(
+//              modifier = Modifier.align(Alignment.CenterEnd).fillMaxHeight(),
+//              adapter = rememberScrollbarAdapter(verticalScroll)
+//          )
+//          HorizontalScrollbar(
+//              modifier = Modifier.align(Alignment.BottomStart)
+//                  .fillMaxHeight()
+//                  .padding(end = 12.dp),
+//              adapter = rememberScrollbarAdapter(verticalScroll)
+//          )
+//      }
+
+//}
+
+//private fun BoxScope.HorizontalScrollbar(modifier: Modifier, adapter: Any) {}

@@ -20,7 +20,7 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
 import kotlinx.coroutines.launch
-import org.owsieman.sdk.api.ApiService
+
 
 fun main() = application {
 //    var secondWindowOpened by remember { mutableStateOf(true) }
