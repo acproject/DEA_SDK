@@ -66,6 +66,7 @@ kotlin {
 
             implementation(libs.voyager.navigation)
             implementation(libs.voyager.transitions)
+            implementation( libs.androidx.compose.material3)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
