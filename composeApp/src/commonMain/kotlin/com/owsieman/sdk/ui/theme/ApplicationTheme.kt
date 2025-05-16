@@ -12,13 +12,11 @@ fun ApplicationTheme (
     content: @Composable () -> Unit
 ){
     val colors = if (drakTheme) DarkColorPalette else LightColorPalette
-    val systemUiController = rememberSystemUiController()
-    val useDarkIcons = !isSystemInDarkTheme()
 
-    // 设置系统UI颜色
-    systemUiController.setSystemBarsColor(
+    // 设置系统UI颜色（具体实现在平台模块）
+    setSystemUIColors(
         color = colors.background,
-        darkIcons = useDarkIcons
+        darkIcons = !isSystemInDarkTheme()
     )
 
     MaterialTheme(
@@ -27,5 +25,4 @@ fun ApplicationTheme (
         shapes = Shapes,
         content = content
     )
-
 }
