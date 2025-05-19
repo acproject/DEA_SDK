@@ -7,7 +7,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-
+    `maven-publish`
 }
 
 kotlin {
@@ -94,6 +94,19 @@ compose.desktop {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "com.owsieman.sdk"
             packageVersion = "1.0.0"
+        }
+    }
+}
+
+// 发布配置
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.owsieman"
+            artifactId = "dea-sdk"
+            version = "0.1.0"
+            
+            from(components["kotlin"])
         }
     }
 }

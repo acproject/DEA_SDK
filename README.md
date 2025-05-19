@@ -16,3 +16,19 @@ We would appreciate your feedback on Compose/Web and Kotlin/Wasm in the public S
 If you face any issues, please report them on [GitHub](https://github.com/JetBrains/compose-multiplatform/issues).
 
 You can open the web application by running the `:composeApp:wasmJsBrowserDevelopmentRun` Gradle task.
+
+
+
+### 当前项目结构
+1. 多平台支持：
+   * 支持Android和DeskTop平台
+   * 使用Compose Multiplatform进行UI开发
+   * 已实现平台特定代码分离（通过expect/actual机制）
+2. UI组件
+   * 使用Voyarger导航框架
+   * 自定义主题
+3. 网络层：
+   * 使用Ktor进行网络请求
+   * 配置了JSON序列化
+
+### 将要进行的优化

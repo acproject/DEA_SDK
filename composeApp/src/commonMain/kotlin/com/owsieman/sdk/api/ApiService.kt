@@ -1,5 +1,6 @@
 package com.owsieman.sdk.api
 
+import com.owsieman.sdk.core.config.SDKConfig
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -15,7 +16,9 @@ import kotlinx.serialization.json.Json
  * @author acproject@qq.com
  * @date 2025/5/7 22:14
  */
-class ApiService {
+class ApiService(private val config: SDKConfig) {
+
+
     private val httpClient = HttpClient {
         install(ContentNegotiation) {
             json(Json {
@@ -25,7 +28,7 @@ class ApiService {
             })
         }
         install(HttpTimeout) {
-            requestTimeoutMillis = 15000    // 15s
+            requestTimeoutMillis = config.timeout    // 15s
         }
     }
 
@@ -49,9 +52,20 @@ class ApiService {
     suspend fun fetchData(): String {
         val result = httpClient.get {
             url {
-                protocol = URLProtocol.HTTP
-                host = "localhost:8080"
-                path("test")
+                // 从配置中获取URL
+                val baseUrl = config.baseUrl
+                if (baseUrl.startsWith("https")) protocol = URLProtocol.HTTPS else protocol = URLProtocol.HTTP
+                // 解析主机和路劲
+                var urlParts = baseUrl.replace("http://", "")
+                    .replace("https//", "").split("/");
+                host = urlParts[0]
+
+//                path() // todo
+                // 如果有API密钥，添加为参数
+                config.apiKey?.let {
+                    parameters.append("apiKey", it)
+                }
+
             }
         }
         return if (result.status.isSuccess()) {

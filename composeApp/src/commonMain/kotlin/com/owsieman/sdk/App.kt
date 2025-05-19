@@ -19,7 +19,7 @@ import dea_sdk.composeapp.generated.resources.Res
 import dea_sdk.composeapp.generated.resources.compose_multiplatform
 import com.owsieman.sdk.screen.ExampleScreen
 import com.owsieman.sdk.screen.HomeScreen
-
+// todo 为了验证是否可用而存在的库，后续会被删除
 @Composable
 @Preview
 fun App() {
