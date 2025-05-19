@@ -1,4 +1,6 @@
-This is a Kotlin Multiplatform project targeting Android, Web, Desktop.  https://kmp.jetbrains.com/
+You can use this URL（ https://kmp.jetbrains.com/ ） to generate a Kotlin Multiplatform project.
+
+This is a Kotlin Multiplatform project targeting Android, Web, Desktop.  
 
 * `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
   It contains several subfolders:
@@ -17,9 +19,8 @@ If you face any issues, please report them on [GitHub](https://github.com/JetBra
 
 You can open the web application by running the `:composeApp:wasmJsBrowserDevelopmentRun` Gradle task.
 
-
-
 ### 当前项目结构
+
 1. 多平台支持：
    * 支持Android和DeskTop平台
    * 使用Compose Multiplatform进行UI开发
@@ -32,3 +33,61 @@ You can open the web application by running the `:composeApp:wasmJsBrowserDevelo
    * 配置了JSON序列化
 
 ### 将要进行的优化
+
+1. 删除测试用的APP构建代码
+2. 完善Services
+3. 编写该项目的SDK
+
+
+### 使用示例 
+#### Android平台
+
+```kotlin
+// 在Application或Activity中初始化
+val settings = PlatformSettings.createSettings(applicationContext)
+
+// 使用新配置初始化
+val config = SDKConfig(
+    baseUrl = "https://api.example.com",
+    apiKey = "your-api-key",
+    // 其他配置...
+)
+DeaSDK.initialize(config, settings)
+
+// 或者尝试从持久化存储加载配置
+val sdk = DeaSDK.initializeFromSaved(settings) ?: run {
+    // 如果没有保存的配置，则使用默认配置初始化
+    val defaultConfig = SDKConfig(
+        baseUrl = "https://api.example.com",
+        apiKey = "default-api-key",
+        // 其他配置...
+    )
+    DeaSDK.initialize(defaultConfig, settings)
+}
+```
+
+
+#### Desktop平台
+```kotlin
+// 在主函数中初始化
+val settings = PlatformSettings.createSettings()
+
+// 使用新配置初始化
+val config = SDKConfig(
+    baseUrl = "https://api.example.com",
+    apiKey = "your-api-key",
+    // 其他配置...
+)
+DeaSDK.initialize(config, settings)
+
+// 或者尝试从持久化存储加载配置
+val sdk = DeaSDK.initializeFromSaved(settings) ?: run {
+    // 如果没有保存的配置，则使用默认配置初始化
+    val defaultConfig = SDKConfig(
+        baseUrl = "https://api.example.com",
+        apiKey = "default-api-key",
+        // 其他配置...
+    )
+    DeaSDK.initialize(defaultConfig, settings)
+}
+```

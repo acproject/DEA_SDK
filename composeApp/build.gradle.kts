@@ -46,6 +46,9 @@ kotlin {
             implementation(libs.voyager.navigation)
             implementation(libs.voyager.transitions)
             implementation( libs.androidx.compose.material3)
+            implementation(libs.multiplatform.settings)
+            implementation(libs.multiplatform.settings.coroutines)
+            implementation(libs.multiplatform.settings.serialization)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
